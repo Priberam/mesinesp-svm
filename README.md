@@ -21,7 +21,10 @@ python3 svm_trainer.py
 python3 svm_predictor.py
 ```
 
-A trained model is provided in the folder "svm_model". This contains saved versions of the model, tf-idf vectorizer and multilabel binarizer.
+A trained model is provided in the folder "svm_model". This contains saved versions of the tf-idf vectorizer and multilabel binarizer. To download the saved model and place it in this folder:
+```
+wget -P svm_model ftp://"ftp.priberam.pt|anonymous"@ftp.priberam.pt/Mesinesp/svm_model.joblib
+```
 
 For some machines, during training the error "IOError: [Errno 28] No space left on device" might happen. Since the training process uses multiprocessing, all shared memory might be used. There are two possible [solutions](https://stackoverflow.com/questions/40115043/no-space-left-on-device-error-while-fitting-sklearn-model):
  * Set n_jobs=1, this stops multiprocessing and considerably slows down training.
